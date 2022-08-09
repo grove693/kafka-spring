@@ -19,29 +19,29 @@ public class KafkaController {
 
     private static final Logger logger = LoggerFactory.getLogger(KafkaController.class);
 
-	@Autowired
-	private KafkaProducer producer;
+    @Autowired
+    private KafkaProducer producer;
 
-	 @PostMapping(value = "/publish")
-	 public void sendMessageToKafkaTopic( ProducerPayload payload) {
-		 	logger.info("Processing POST Request ");
-	        this.producer.sendMessage(payload.getMessage());
-	    }
-	 
-	 
-	 @GetMapping(value = "/testGet")
-	 public void sendMessageToKafkaTopic(@RequestParam("message") String reqParam) {
-		 	logger.info("Processing GET Request ");
-	        logger.info("Payload is " + reqParam);
-	    }
-	
-	public KafkaProducer getProducer() {
-		return producer;
-	}
+    @PostMapping(value = "/publish")
+    public void sendMessageToKafkaTopic(ProducerPayload payload) {
+        logger.info("Processing POST Request ");
+        this.producer.sendMessage(payload.getMessage());
+    }
 
-	public void setProducer(KafkaProducer producer) {
-		this.producer = producer;
-	}
+
+    @GetMapping(value = "/testGet")
+    public void sendMessageToKafkaTopic(@RequestParam("message") String reqParam) {
+        logger.info("Processing GET Request ");
+        logger.info("Payload is " + reqParam);
+    }
+
+    public KafkaProducer getProducer() {
+        return producer;
+    }
+
+    public void setProducer(KafkaProducer producer) {
+        this.producer = producer;
+    }
 
 }
 

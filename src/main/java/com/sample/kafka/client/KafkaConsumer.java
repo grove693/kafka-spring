@@ -12,9 +12,8 @@ public class KafkaConsumer {
 
     private static final Logger logger = LoggerFactory.getLogger(KafkaConsumer.class);
 
-
     @KafkaListener(topics = "topicA")
     public void consume(String message) throws IOException {
-        logger.info("received message= '{}'" , message);
+        logger.info("received message= '{}'", message);
     }
 }
